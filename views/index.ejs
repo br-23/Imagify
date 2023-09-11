@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Imagify</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="generate">
+            <form action="/submit" method="post">
+                <select name="set" class="form-select style">
+                    <option value="set1" data-display="Select a category">Robots</option>
+                    <option value="set2">Monsters</option>
+                    <option value="set3">Disembodied heads</option>
+                    <option value="set4">Kittens</option>
+                  </select>
+
+                  <input type="text" placeholder="Type something" name="typed" autocomplete="off" class="style">
+                  <button type="submit" class="style">Generate</button>
+            </form>
+        </div>
+
+        <div class="image">
+            <% if(locals.content){ %>
+           <img src="https://robohash.org/<%=content.typed%>.png?set=<%=content.set%>"> 
+            <% } %>
+        </div>
+
+    </div>
+</body>
+</html>
